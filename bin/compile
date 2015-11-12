@@ -72,7 +72,7 @@ mkdir -p $CACHE_DIR
 title "Generating environment"
 if [ ! -f $CACHE_DIR/env.tar.gz ]; then
 	subtitle "Fetching..."
-    curl -s -L "https://s3.amazonaws.com/fm-misc/opencv3-buildpack-min.tar.gz" > $CACHE_DIR/env.tar.gz
+    curl -s -L "https://s3-eu-west-1.amazonaws.com/jskrzypek/opencv3_plus_deps.tar.gz" > $CACHE_DIR/env.tar.gz
 fi
 subtitle "Unpacking..."
 tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
@@ -81,7 +81,11 @@ tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
 title "Creating environment variables."
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/5251124.sh
-export LD_LIBRARY_PATH="\$HOME/.heroku/vendor/lib/:\$HOME/.heroku/vendor/lib/:\$LD_LIBRARY_PATH"
+export ATLAS="\$HOME/.heroku/vendor/libatlas.a"
+export BLAS="\$HOME/.heroku/vendor/libblas.a"
+export LAPACK="\$HOME/.heroku/vendor/liblapack.a"
+export LD_LIBRARY_PATH="\$HOME/.heroku/vendor/lib:\$HOME/.heroku/vendor/lib/atlas-base:\$HOME/.heroku/vendor/lib/atlas-base/atlas:\$LD_LIBRARY_PATH"
+export PYTHONPATH="\$HOME/.heroku/vendor/lib/python3.4/dist-packages/:\$HOME/.heroku/vendor/lib/python3.4/dist-packages/"
 export PATH="\$HOME/usr/local/bin:\$HOME/.heroku/vendor/bin:\$PATH"
 EOF
 # export "\$LIBRARY_PATH=\$HOME/.heroku/vendor/lib/:\$LIBRARY_PATH"
