@@ -99,5 +99,6 @@ EOF
 deep-mv $BUILD_DIR $ORIG_BUILD_DIR
 
 echo "$PKG_CONFIG_PATH"
+echo "${pkg-config --cflags "opencv >= 2.3.1"}"
 
 title "Buildpack installed."
