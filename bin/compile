@@ -98,4 +98,6 @@ EOF
 
 deep-mv $BUILD_DIR $ORIG_BUILD_DIR
 
+echo "$PKG_CONFIG_PATH"
+
 title "Buildpack installed."
