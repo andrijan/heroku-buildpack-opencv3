@@ -87,6 +87,7 @@ export LAPACK="\$HOME/.heroku/vendor/liblapack.a"
 export LD_LIBRARY_PATH="\$HOME/.heroku/vendor/lib:\$HOME/.heroku/vendor/lib/atlas-base:\$HOME/.heroku/vendor/lib/atlas-base/atlas:\$LD_LIBRARY_PATH"
 export PYTHONPATH="\$HOME/.heroku/vendor/lib/python3.4/dist-packages/:\$HOME/.heroku/vendor/lib/python3.4/dist-packages/"
 export PATH="\$HOME/usr/local/bin:\$HOME/.heroku/vendor/bin:\$PATH"
+ln -s \$HOME/.heroku/vendor/bin/opencv3 \$HOME/.heroku/vendor/bin/opencv
 EOF
 # export "\$LIBRARY_PATH=\$HOME/.heroku/vendor/lib/:\$LIBRARY_PATH"
 # export "\$LD_LIBRARY_PATH=\$HOME/.heroku/vendor/lib/:\$LD_LIBRARY_PATH"
